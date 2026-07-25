@@ -42,13 +42,19 @@
 
 # Investigation:
 
+**Note: Since this is one of the longer investigations, I'm going to try to keep explanations as concise as possible**
+
 ## 1. Initial Access
 
 ### 1.1) The attack begins with a password spray targeting Taylor. As the authentication attempts progressed, different error codes were returned. What were the observed error codes, in chronological order?
 
 ![1.1](screenshots/1.1.0.png)
 
-**Answer: **
+![1.1](screenshots/1.1.1.png)
+
+![1.1](screenshots/1.1.2.png)
+
+**Answer: 50126, 50076**
 
 <br>
 
@@ -56,7 +62,14 @@
 
 ![1.2](screenshots/1.2.0.png)
 
-**Answer: **
+![1.2](screenshots/1.2.1.png)
+
+Know it was more than likely Taylor's account targeted again to get him to authorize the MFA:
+
+![1.2](screenshots/1.2.2.png)
+
+
+**Answer: rnicrosoft.com**
 
 <br>
 
@@ -64,7 +77,7 @@
 
 ![1.3](screenshots/1.3.0.png)
 
-**Answer: **
+**Answer: Russia**
 
 <br>
 
@@ -72,7 +85,7 @@
 
 ![1.4](screenshots/1.4.0.png)
 
-**Answer: **
+**Answer: Device Code Phishing**
 
 <br>
 
@@ -80,7 +93,7 @@
 
 ![1.5](screenshots/1.5.0.png)
 
-**Answer: **
+**Answer: 15**
 
 <br>
 
@@ -88,7 +101,7 @@
 
 ![1.6](screenshots/1.6.0.png)
 
-**Answer: **
+**Answer: Device code flow**
 
 ---
 
