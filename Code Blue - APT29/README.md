@@ -113,7 +113,9 @@ Know it was more than likely Taylor's account targeted again to get him to autho
 
 ![2.1](screenshots/2.1.0.png)
 
-**Answer: **
+Original was graph.
+
+**Answer: 4**
 
 <br>
 
@@ -121,7 +123,7 @@ Know it was more than likely Taylor's account targeted again to get him to autho
 
 ![2.2](screenshots/2.2.0.png)
 
-**Answer: **
+**Answer: e60ef323-cc98-3fb1-a8da-fb7097909857**
 
 ---
 
@@ -133,7 +135,7 @@ Know it was more than likely Taylor's account targeted again to get him to autho
 
 ![3.1](screenshots/3.1.0.png)
 
-**Answer: **
+**Answer: t.martinez.backup@protonmail.com**
 
 <br>
 
@@ -141,7 +143,7 @@ Know it was more than likely Taylor's account targeted again to get him to autho
 
 ![3.2](screenshots/3.2.0.png)
 
-**Answer: **
+**Answer: IT Updates**
 
 <br>
 
@@ -149,7 +151,7 @@ Know it was more than likely Taylor's account targeted again to get him to autho
 
 ![3.3](screenshots/3.3.0.png)
 
-**Answer: **
+**Answer: 64, 98**
 
 <br>
 
