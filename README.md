@@ -10,7 +10,7 @@
 
 | # | Investigation | Platform | Focus | Status |
 |---|--------------|----------|-------|--------|
-| 01 | AzureSpray | CyberDefenders | Azure AD Sign-in Logs, Sentinel Analytics, Password Spraying, Smart Lockout bypass | In Progress |
+| 01 | AzureSpray | CyberDefenders | Azure AD Sign-in Logs, Sentinel Analytics, Password Spraying, Smart Lockout bypass | Completed |
 | 02 | DynamicEscalate | CyberDefenders | M365 UAL, Exchange Message Traces, Entra ID Privilege Escalation, KQL | In Progress |
 | 03 | Rogue Azure | CyberDefenders | Entra ID, Azure Storage Blobs, Service Principal abuse, Data exfiltration, KQL | In Progress |
 | 04 | Code Blue - APT29 | CyberDefenders | Device Code Phishing, Silver SAML Forgery, Service Account Chaining, M365 UAL, KQL | In Progress |
