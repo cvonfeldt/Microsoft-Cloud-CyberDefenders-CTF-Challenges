@@ -22,41 +22,41 @@
 
 ### Attack Chain:
 
-                            Password spray against Microsoft Entra ID (Taylor's account)
-                                                        ↓
-                            Failed sign-ins (50126) followed by MFA requirement (50076)
-                                                        ↓
-                           Device Code phishing using typosquatted domain (rnicrosoft.com)
-                                                        ↓
-                            Successful Microsoft Entra ID authentication via device code
-                                                        ↓
-                        OAuth token (FOCI) abuse to access additional Microsoft applications
-                                                        ↓
-                             Microsoft 365 mailbox reconnaissance and file enumeration
-                                                        ↓
-                          Malicious inbox rule + external email forwarding for persistence
-                                                        ↓
-                         Discovery of service account credentials stored in an Excel document
-                                                        ↓
-                       Pivot to svc-automation service account from new attacker infrastructure
-                                                        ↓
-                       Azure Automation enumeration and credential harvesting from job output
-                                                        ↓
-                        Compromise of additional service accounts through deployment history
-                                                        ↓
-                            Access to Azure Key Vault using compromised service account
-                                                        ↓
-                        Theft of SAML signing certificate and additional service credentials
-                                                        ↓
-                          Silver SAML token forgery to impersonate privileged users
-                                                        ↓
-                    Enumeration of Azure SQL, Azure Arc, Storage Accounts, and Blob Containers
-                                                        ↓
-                           SAS token generation and cloud storage data exfiltration (PHI)
-                                                        ↓
-                            OAuth application backdooring by adding malicious credentials
-                                                        ↓
-                      Persistent access to Microsoft 365 through compromised OAuth applications
+                                Password spray against Microsoft Entra ID (Taylor's account)
+                                                            ↓
+                                Failed sign-ins (50126) followed by MFA requirement (50076)
+                                                            ↓
+                               Device Code phishing using typosquatted domain (rnicrosoft.com)
+                                                            ↓
+                                Successful Microsoft Entra ID authentication via device code
+                                                            ↓
+                            OAuth token (FOCI) abuse to access additional Microsoft applications
+                                                            ↓
+                                 Microsoft 365 mailbox reconnaissance and file enumeration
+                                                            ↓
+                              Malicious inbox rule + external email forwarding for persistence
+                                                            ↓
+                             Discovery of service account credentials stored in an Excel document
+                                                            ↓
+                           Pivot to svc-automation service account from new attacker infrastructure
+                                                            ↓
+                           Azure Automation enumeration and credential harvesting from job output
+                                                            ↓
+                            Compromise of additional service accounts through deployment history
+                                                            ↓
+                                Access to Azure Key Vault using compromised service account
+                                                            ↓
+                            Theft of SAML signing certificate and additional service credentials
+                                                            ↓
+                              Silver SAML token forgery to impersonate privileged users
+                                                            ↓
+                        Enumeration of Azure SQL, Azure Arc, Storage Accounts, and Blob Containers
+                                                            ↓
+                               SAS token generation and cloud storage data exfiltration (PHI)
+                                                            ↓
+                                OAuth application backdooring by adding malicious credentials
+                                                            ↓
+                          Persistent access to Microsoft 365 through compromised OAuth applications
 
 ---
 
