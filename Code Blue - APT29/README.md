@@ -123,6 +123,8 @@ Original was graph.
 
 ![2.2](screenshots/2.2.0.png)
 
+![2.2](screenshots/2.2.1.png)
+
 **Answer: e60ef323-cc98-3fb1-a8da-fb7097909857**
 
 ---
@@ -150,6 +152,12 @@ Original was graph.
 ### 3.3) During the initial reconnaissance within the user's account, how many emails were accessed and how many files were downloaded?
 
 ![3.3](screenshots/3.3.0.png)
+
+![3.3](screenshots/3.3.1.png)
+
+![3.3](screenshots/3.3.2.png)
+
+![3.3](screenshots/3.3.3.png)
 
 **Answer: 64, 98**
 
@@ -186,6 +194,8 @@ Original was graph.
 ### 4.3) Using the first compromised service account, the attacker enumerated Azure Automation resources. What are the names of the Automation Accounts discovered?
 
 ![4.3](screenshots/4.3.0.png)
+
+![4.3](screenshots/4.3.1.png)
 
 **Answer: aa-meridian-prod, meridian-automation**
 
@@ -315,6 +325,8 @@ Original was graph.
 
 ![8.4](screenshots/8.4.0.png)
 
+![8.4](screenshots/8.4.1.png)
+
 **Answer: stpatientdata9474**
 
 <br>
@@ -358,6 +370,8 @@ Original was graph.
 ### 9.2) After adding backdoor credentials to multiple applications, the attacker discovered that one of them had existing permissions for Microsoft 365 data and used it to access sensitive data. How many MailItemsAccessed and FileDownloaded events were logged through this backdoor application?
 
 ![9.2](screenshots/9.2.0.png)
+
+![9.2](screenshots/9.2.1.png)
 
 **Answer: 116, 165**
 
