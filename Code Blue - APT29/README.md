@@ -22,6 +22,41 @@
 
 ### Attack Chain:
 
+                            Password spray against Microsoft Entra ID (Taylor's account)
+                                                        ↓
+                            Failed sign-ins (50126) followed by MFA requirement (50076)
+                                                        ↓
+                           Device Code phishing using typosquatted domain (rnicrosoft.com)
+                                                        ↓
+                            Successful Microsoft Entra ID authentication via device code
+                                                        ↓
+                        OAuth token (FOCI) abuse to access additional Microsoft applications
+                                                        ↓
+                             Microsoft 365 mailbox reconnaissance and file enumeration
+                                                        ↓
+                          Malicious inbox rule + external email forwarding for persistence
+                                                        ↓
+                         Discovery of service account credentials stored in an Excel document
+                                                        ↓
+                       Pivot to svc-automation service account from new attacker infrastructure
+                                                        ↓
+                       Azure Automation enumeration and credential harvesting from job output
+                                                        ↓
+                        Compromise of additional service accounts through deployment history
+                                                        ↓
+                            Access to Azure Key Vault using compromised service account
+                                                        ↓
+                        Theft of SAML signing certificate and additional service credentials
+                                                        ↓
+                          Silver SAML token forgery to impersonate privileged users
+                                                        ↓
+                    Enumeration of Azure SQL, Azure Arc, Storage Accounts, and Blob Containers
+                                                        ↓
+                           SAS token generation and cloud storage data exfiltration (PHI)
+                                                        ↓
+                            OAuth application backdooring by adding malicious credentials
+                                                        ↓
+                      Persistent access to Microsoft 365 through compromised OAuth applications
 
 ---
 
@@ -29,12 +64,52 @@
 
 ## Indicators of Compromise:
 
+| Type                  | Indicator                                                                         | Context                                                                     |
+| --------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| IP Address            | **Initial attacker IP (Russia)**                                                  | Source of the password spray and Device Code phishing campaign              |
+| IP Address            | **91.132.139.195**                                                                | Infrastructure used after pivoting to the first compromised service account |
+| IP Address            | **141.255.164.11**                                                                | Infrastructure used during Azure resource access and data exfiltration      |
+| Domain                | **rnicrosoft.com**                                                                | Typosquatted phishing domain used for Device Code phishing                  |
+| User Account          | **Taylor (initial victim)**                                                       | First compromised user account via Device Code phishing                     |
+| Service Account       | **[svc-automation@meridianhealth.org](mailto:svc-automation@meridianhealth.org)** | First service account compromised through credential discovery              |
+| Service Account       | **[svc-federation@meridianhealth.org](mailto:svc-federation@meridianhealth.org)** | Service account used to access Azure Key Vault                              |
+| Azure Key Vault       | **KV-MERIDIAN-PROD-9474**                                                         | Targeted to retrieve high-value secrets                                     |
+| Secret                | **miro-saml-certificate**                                                         | SAML signing certificate used for Silver SAML attacks                       |
+| Secret                | **svc-backup-password**                                                           | Credential used to compromise an additional service account                 |
+| OAuth Application     | **Miro**                                                                          | Modified by adding attacker-controlled credentials for persistence          |
+| OAuth Applications    | **MeridianIntegrationApp, PatientPortalApp, MobileHealthApp**                     | Additional applications backdoored by the attacker                          |
+| Storage Account       | **stpatientdata9474**                                                             | Azure Storage account used during data access/exfiltration                  |
+| Mail Forwarding       | **[t.martinez.backup@protonmail.com](mailto:t.martinez.backup@protonmail.com)**   | External forwarding address created for persistence                         |
+| Inbox Rule            | **IT Updates**                                                                    | Rule created to hide security notifications                                 |
+| Authentication Method | **Device Code Authentication**                                                    | Initial authentication mechanism abused by attacker                         |
+| Authentication Method | **Silver SAML**                                                                   | Forged SAML tokens used to impersonate privileged users                     |
+
+
 
 ---
 
 <br>
 
 ## MITRE ATT&CK Mapping:
+
+| ATT&CK ID     | Technique                                                  | Evidence                                                                                              |
+| ------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **T1110.003** | Brute Force: Password Spraying                             | Password spray against Microsoft Entra ID resulted in repeated failed authentication attempts.        |
+| **T1078**     | Valid Accounts                                             | Legitimate user and service account credentials were successfully compromised and used.               |
+| **T1566.002** | Phishing: Spearphishing Link                               | Victim was directed to a typosquatted Microsoft login domain.                                         |
+| **T1528**     | Steal Application Access Token                             | Device Code phishing and FOCI token abuse enabled persistent access to Microsoft applications.        |
+| **T1087.004** | Account Discovery: Cloud Account                           | Attacker enumerated Entra ID users, groups, and cloud identities.                                     |
+| **T1083**     | File and Directory Discovery                               | Mailbox contents and OneDrive/SharePoint files were searched for sensitive information.               |
+| **T1114.003** | Email Collection: Email Forwarding Rule                    | Mail forwarding and inbox rules established persistence and concealed activity.                       |
+| **T1552.001** | Unsecured Credentials: Credentials in Files                | Service account credentials discovered in an Excel spreadsheet.                                       |
+| **T1552.007** | Unsecured Credentials: Container/Cloud Service Credentials | Additional credentials recovered from Azure Automation job output and deployment history.             |
+| **T1555**     | Credentials from Password Stores                           | Secrets extracted from Azure Key Vault.                                                               |
+| **T1526**     | Cloud Service Discovery                                    | Azure Automation, SQL, Azure Arc, Key Vault, and Storage resources were enumerated.                   |
+| **T1069.003** | Permission Groups Discovery: Cloud Groups                  | Cloud roles and permissions were enumerated during reconnaissance.                                    |
+| **T1606.002** | Forge Web Credentials: SAML Tokens (Silver SAML)           | Stolen SAML signing certificate used to forge authentication tokens and impersonate privileged users. |
+| **T1530**     | Data from Cloud Storage Object                             | Azure Blob Storage containers containing PHI were accessed.                                           |
+| **T1567.002** | Exfiltration to Cloud Storage                              | Data was staged and exfiltrated using Azure Storage and SAS tokens.                                   |
+| **T1098.001** | Account Manipulation: Additional Cloud Credentials         | OAuth applications were modified with attacker-controlled credentials for persistence.                |
 
 ---
 
