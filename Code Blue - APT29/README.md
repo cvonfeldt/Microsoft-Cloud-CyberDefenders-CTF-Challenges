@@ -179,7 +179,7 @@ Original was graph.
 
 ![4.2](screenshots/4.2.0.png)
 
-**Answer: **
+**Answer: 91.132.139.195**
 
 <br>
 
@@ -187,7 +187,7 @@ Original was graph.
 
 ![4.3](screenshots/4.3.0.png)
 
-**Answer: **
+**Answer: aa-meridian-prod, meridian-automation**
 
 <br>
 
@@ -195,7 +195,7 @@ Original was graph.
 
 ![4.4](screenshots/4.4.0.png)
 
-**Answer: **
+**Answer: D3pl0y#Pr0d!2026**
 
 <br>
 
@@ -203,7 +203,7 @@ Original was graph.
 
 ![4.5](screenshots/4.5.0.png)
 
-**Answer: **
+**Answer: svc-federation@meridianhealth.org**
 
 ---
 
@@ -215,7 +215,7 @@ Original was graph.
 
 ![5.1](screenshots/5.1.0.png)
 
-**Answer: **
+**Answer: KV-MERIDIAN-PROD-9474**
 
 <br>
 
@@ -223,7 +223,7 @@ Original was graph.
 
 ![5.2](screenshots/5.2.0.png)
 
-**Answer: **
+**Answer: miro-saml-certificate**
 
 <br>
 
@@ -231,7 +231,7 @@ Original was graph.
 
 ![5.3](screenshots/5.3.0.png)
 
-**Answer: **
+**Answer: svc-backup-password**
 
 ---
 
@@ -243,7 +243,7 @@ Original was graph.
 
 ![6.1](screenshots/6.1.0.png)
 
-**Answer: **
+**Answer: dr.sara.chen, james.wilson**
 
 <br>
 
@@ -251,7 +251,7 @@ Original was graph.
 
 ![6.2](screenshots/6.2.0.png)
 
-**Answer: **
+**Answer: 2026-02-10 12:18**
 
 <br>
 
@@ -259,7 +259,7 @@ Original was graph.
 
 ![6.3](screenshots/6.3.0.png)
 
-**Answer: **
+**Answer: T1606.002**
 
 ---
 
@@ -271,7 +271,7 @@ Original was graph.
 
 ![7.1](screenshots/7.1.0.png)
 
-**Answer: **
+**Answer: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0**
 
 <br>
 
@@ -279,7 +279,7 @@ Original was graph.
 
 ![7.2](screenshots/7.2.0.png)
 
-**Answer: **
+**Answer: 15**
 
 ---
 
@@ -291,7 +291,7 @@ Original was graph.
 
 ![8.1](screenshots/8.1.0.png)
 
-**Answer: **
+**Answer: PatientDB, AnalyticsDB, AuditDB**
 
 <br>
 
@@ -299,7 +299,7 @@ Original was graph.
 
 ![8.2](screenshots/8.2.0.png)
 
-**Answer: **
+**Answer: arc-dc01, arc-database01, arc-storage01**
 
 <br>
 
@@ -307,7 +307,7 @@ Original was graph.
 
 ![8.3](screenshots/8.3.0.png)
 
-**Answer: **
+**Answer: 141.255.164.11**
 
 <br>
 
@@ -315,7 +315,7 @@ Original was graph.
 
 ![8.4](screenshots/8.4.0.png)
 
-**Answer: **
+**Answer: stpatientdata9474**
 
 <br>
 
@@ -323,7 +323,7 @@ Original was graph.
 
 ![8.5](screenshots/8.5.0.png)
 
-**Answer: **
+**Answer: patient-records, phi-data, backups, audit-logs**
 
 <br>
 
@@ -331,7 +331,7 @@ Original was graph.
 
 ![8.6](screenshots/8.6.0.png)
 
-**Answer: **
+**Answer: 2026-02-17, rl**
 
 <br>
 
@@ -339,7 +339,7 @@ Original was graph.
 
 ![8.7](screenshots/8.7.0.png)
 
-**Answer: **
+**Answer: 7**
 
 ---
 
@@ -351,7 +351,7 @@ Original was graph.
 
 ![9.1](screenshots/9.1.0.png)
 
-**Answer: **
+**Answer: Miro, MeridianIntegrationApp, PatientPortalApp, MobileHealthApp**
 
 <br>
 
@@ -359,7 +359,7 @@ Original was graph.
 
 ![9.2](screenshots/9.2.0.png)
 
-**Answer: **
+**Answer: 116, 165**
 
 ---
 
@@ -371,7 +371,7 @@ Original was graph.
 
 ![10.1](screenshots/10.1.0.png)
 
-**Answer: **
+**Answer: T1528**
 
 <br>
 
@@ -379,7 +379,7 @@ Original was graph.
 
 ![10.2](screenshots/10.2.0.png)
 
-**Answer: **
+**Answer: T1114.003**
 
 <br>
 
@@ -387,7 +387,7 @@ Original was graph.
 
 ![10.3](screenshots/10.3.0.png)
 
-**Answer: **
+**Answer: T1098.001**
 
 <br>
 
@@ -395,7 +395,7 @@ Original was graph.
 
 ![10.4](screenshots/10.4.0.png)
 
-**Answer: **
+**Answer: AuditEvent**
 
 <br>
 
@@ -403,7 +403,7 @@ Original was graph.
 
 ![10.5](screenshots/10.5.0.png)
 
-**Answer: **
+**Answer: Managed Identity**
 
 ---
 
