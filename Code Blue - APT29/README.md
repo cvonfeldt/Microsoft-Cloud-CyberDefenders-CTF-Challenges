@@ -50,9 +50,15 @@
 
 ![1.1](screenshots/1.1.0.png)
 
+First I checked the statuses to see what a fail was called.
+
 ![1.1](screenshots/1.1.1.png)
 
+Seeing columns.
+
 ![1.1](screenshots/1.1.2.png)
+
+Printing codes in order
 
 **Answer: 50126, 50076**
 
@@ -62,9 +68,11 @@
 
 ![1.2](screenshots/1.2.0.png)
 
+Checking the record type and operation for email.
+
 ![1.2](screenshots/1.2.1.png)
 
-Know it was more than likely Taylor's account targeted again to get him to authorize the MFA:
+Know it was more than likely Taylor's account targeted again to get him to authorize the MFA.
 
 ![1.2](screenshots/1.2.2.png)
 
@@ -75,6 +83,8 @@ Know it was more than likely Taylor's account targeted again to get him to autho
 
 ### 1.3) Threat intelligence often relies on geographic attribution. What is the country associated with the attacker's first IP address, according to the logs?
 
+Take IP from 1.1:
+
 ![1.3](screenshots/1.3.0.png)
 
 **Answer: Russia**
@@ -83,6 +93,8 @@ Know it was more than likely Taylor's account targeted again to get him to autho
 
 ### 1.4) What is the name of the phishing technique the attacker used to bypass MFA and gain access?
 
+Checking how attacker was authorized:
+
 ![1.4](screenshots/1.4.0.png)
 
 **Answer: Device Code Phishing**
@@ -90,6 +102,8 @@ Know it was more than likely Taylor's account targeted again to get him to autho
 <br>
 
 ### 1.5) This phishing technique is particularly dangerous because it uses legitimate Microsoft login pages. However, it has a built-in time limitation. What is the default lifetime (in minutes) before the authentication code expires?
+
+Quick lookup:
 
 ![1.5](screenshots/1.5.0.png)
 
@@ -111,6 +125,8 @@ Know it was more than likely Taylor's account targeted again to get him to autho
 
 ### 2.1) After the initial compromise, the attacker abused OAuth token families (FOCI) to access multiple applications without re-authentication. Excluding the initial phishing application, how many additional applications did the attacker access using this method?
 
+Outputting the resources (applications):
+
 ![2.1](screenshots/2.1.0.png)
 
 Original was graph.
@@ -121,7 +137,11 @@ Original was graph.
 
 ### 2.2) What is the CorrelationId of the first directory enumeration activity performed by the attacker?
 
+Checking which activity could be enumeration:
+
 ![2.2](screenshots/2.2.0.png)
+
+Searching for enumeration:
 
 ![2.2](screenshots/2.2.1.png)
 
@@ -135,6 +155,8 @@ Original was graph.
 
 ### 3.1) The attacker configured email forwarding on the compromised mailbox for persistent access. To what external email address were the emails forwarded?
 
+See set-mailbox activity seen in 2.2:
+
 ![3.1](screenshots/3.1.0.png)
 
 **Answer: t.martinez.backup@protonmail.com**
@@ -142,6 +164,8 @@ Original was graph.
 <br>
 
 ### 3.2) What is the name of the malicious inbox rule created by the attacker to hide security alerts and notifications?
+
+See new-inboxrule activity seen in 2.2:
 
 ![3.2](screenshots/3.2.0.png)
 
@@ -151,9 +175,15 @@ Original was graph.
 
 ### 3.3) During the initial reconnaissance within the user's account, how many emails were accessed and how many files were downloaded?
 
+Not seen in 2.2, but MailItemsAccessed is another operation:
+
 ![3.3](screenshots/3.3.0.png)
 
+Count how many mail items accessed.
+
 ![3.3](screenshots/3.3.1.png)
+
+Same process for FileDownloaded operation:
 
 ![3.3](screenshots/3.3.2.png)
 
@@ -164,6 +194,8 @@ Original was graph.
 <br>
 
 ### 3.4) While searching through the victim's emails and files, the attacker discovered an Excel file containing credentials for a service account. What is the UPN of this first compromised service account?
+
+Searching for excel (by extension) files within emails and files accessed, we see the service account file:
 
 ![3.4](screenshots/3.4.0.png)
 
@@ -177,6 +209,8 @@ Original was graph.
 
 ### 4.1) After noticing suspicious activity, the victim attempted to secure their account. At what time (ActivityDateTime) did the victim change their password?
 
+Searching for possible change password activities:
+
 ![4.1](screenshots/4.1.0.png)
 
 **Answer: 2026-02-10 11:48**
@@ -185,6 +219,8 @@ Original was graph.
 
 ### 4.2) The attacker switched infrastructure when pivoting to the first compromised service account. What IP address was used to authenticate as this service account?
 
+Searching for different IPs from Russia (attacker origin):
+
 ![4.2](screenshots/4.2.0.png)
 
 **Answer: 91.132.139.195**
@@ -192,6 +228,8 @@ Original was graph.
 <br>
 
 ### 4.3) Using the first compromised service account, the attacker enumerated Azure Automation resources. What are the names of the Automation Accounts discovered?
+
+Searching for activity from the compromised user we see both:
 
 ![4.3](screenshots/4.3.0.png)
 
@@ -203,6 +241,8 @@ Original was graph.
 
 ### 4.4) The attacker examined job outputs from one of the Automation Accounts and discovered credentials for another service account. What is the password that was exposed in the job output?
 
+Checking activity from automation/service accounts we see credentials for another service account.
+
 ![4.4](screenshots/4.4.0.png)
 
 **Answer: D3pl0y#Pr0d!2026**
@@ -210,6 +250,8 @@ Original was graph.
 <br>
 
 ### 4.5) The attacker continued enumerating Azure resources and found credentials for a third service account in the deployment history. What is the UPN of this third compromised service account?
+
+Searching for another svc (service) account specifically in properties: 
 
 ![4.5](screenshots/4.5.0.png)
 
@@ -221,6 +263,8 @@ Original was graph.
 
 ## 5. High-Value Asset Discovery
 
+Searching key vault logs with the new compromised server account:
+
 ### 5.1) The attacker discovered that the third service account has Key Vault access permissions and proceeded to access it. What is the name of the Key Vault that was successfully accessed?
 
 ![5.1](screenshots/5.1.0.png)
@@ -231,6 +275,8 @@ Original was graph.
 
 ### 5.2) The attacker extracted multiple secrets from the Key Vault. What is the name of the secret containing the SAML signing certificate?
 
+Seen in same query as above:
+
 ![5.2](screenshots/5.2.0.png)
 
 **Answer: miro-saml-certificate**
@@ -238,6 +284,8 @@ Original was graph.
 <br>
 
 ### 5.3) Among the secrets stored in the Key Vault, what is the name of the secret that contains the password for the fourth service account credentials?
+
+Also seen in same query:
 
 ![5.3](screenshots/5.3.0.png)
 
@@ -251,6 +299,8 @@ Original was graph.
 
 ### 6.1) With the SAML signing certificate and its password, the attacker can forge authentication tokens to impersonate any user. What are the usernames (without domain) of the two users impersonated via Silver SAML?
 
+After finding authmethod of saml_sso and eventcategory of access from attacker IP:
+
 ![6.1](screenshots/6.1.0.png)
 
 **Answer: dr.sara.chen, james.wilson**
@@ -259,6 +309,8 @@ Original was graph.
 
 ### 6.2) At what time (UTC) did the first Silver SAML impersonation login occur?
 
+Checking authentications by time:
+
 ![6.2](screenshots/6.2.0.png)
 
 **Answer: 2026-02-10 12:18**
@@ -266,6 +318,8 @@ Original was graph.
 <br>
 
 ### 6.3) Identity federation abuse is a common post-compromise technique used to bypass authentication controls. What is the MITRE ATT&CK technique ID for forging SAML tokens?
+
+Quick lookup:
 
 ![6.3](screenshots/6.3.0.png)
 
@@ -279,6 +333,8 @@ Original was graph.
 
 ### 7.1) During the Miro exfiltration phase, a third IP address is observed in the activity logs. What is the associated User-Agent string for that IP address?
 
+Checking for IPs in the logs after the attack started and for Dr chen or James impersonations in Miro:
+
 ![7.1](screenshots/7.1.0.png)
 
 **Answer: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0**
@@ -286,6 +342,8 @@ Original was graph.
 <br>
 
 ### 7.2) How many unique Miro boards were exported in total?
+
+Counting board.exports:
 
 ![7.2](screenshots/7.2.0.png)
 
@@ -299,6 +357,8 @@ Original was graph.
 
 ### 8.1) During the Azure enumeration phase, the attacker identified an SQL server and enumerated its databases. What are the names of the discovered databases?
 
+Checking properties of logs in azure activity from our 3 attacker IPs so far:
+
 ![8.1](screenshots/8.1.0.png)
 
 **Answer: PatientDB, AnalyticsDB, AuditDB**
@@ -306,6 +366,8 @@ Original was graph.
 <br>
 
 ### 8.2) The attacker enumerated Azure Arc hybrid machines. What are the names of all Arc machines discovered?
+
+This time searching for the string "arc":
 
 ![8.2](screenshots/8.2.0.png)
 
@@ -315,6 +377,8 @@ Original was graph.
 
 ### 8.3) The attacker switched to a fourth IP address for additional operations. What is this IP address?
 
+Checking events initiated by our compromised accounts that aren't the attacker IPs we've already come across:
+
 ![8.3](screenshots/8.3.0.png)
 
 **Answer: 141.255.164.11**
@@ -323,7 +387,11 @@ Original was graph.
 
 ### 8.4) What is the name of the storage account targeted for data exfiltration?
 
+Searching for "storage" to find storage account properties:
+
 ![8.4](screenshots/8.4.0.png)
+
+Can't see above, but pivoted to StorageBlob logs to see storage account names associated with the ones found above:
 
 ![8.4](screenshots/8.4.1.png)
 
@@ -333,6 +401,7 @@ Original was graph.
 
 ### 8.5) What are the names of all containers accessed by the attacker, ordered from highest to lowest based on the number of logged operations?
 
+Building off of previous query to count by containerNames accessed
 ![8.5](screenshots/8.5.0.png)
 
 **Answer: patient-records, phi-data, backups, audit-logs**
@@ -341,6 +410,8 @@ Original was graph.
 
 ### 8.6) During the exfiltration phase, the attacker generated a SAS token. What is the expiration date and what permissions were granted on this token?
 
+Adding to previous query to check when auth type is SAS what the expiration and permissions are:
+
 ![8.6](screenshots/8.6.0.png)
 
 **Answer: 2026-02-17, rl**
@@ -348,6 +419,8 @@ Original was graph.
 <br>
 
 ### 8.7) User Delegation SAS tokens allow delegated access to Azure Blob Storage resources without sharing account keys. These tokens are time-limited to reduce risk of misuse. What is the maximum validity period (in days) for a User Delegation SAS token?
+
+Quick lookup:
 
 ![8.7](screenshots/8.7.0.png)
 
@@ -361,6 +434,9 @@ Original was graph.
 
 ### 9.1) The attacker established persistence by adding backdoor credentials and escalating privileges on multiple OAuth applications. What are the display names of the applications modified, in chronological order?
 
+
+Checking app names when targetType is application:
+
 ![9.1](screenshots/9.1.0.png)
 
 **Answer: Miro, MeridianIntegrationApp, PatientPortalApp, MobileHealthApp**
@@ -369,7 +445,11 @@ Original was graph.
 
 ### 9.2) After adding backdoor credentials to multiple applications, the attacker discovered that one of them had existing permissions for Microsoft 365 data and used it to access sensitive data. How many MailItemsAccessed and FileDownloaded events were logged through this backdoor application?
 
+Checking which app had existing permissions on Microsoft:
+
 ![9.2](screenshots/9.2.0.png)
+
+Now counting by operations to find number of mail items accessed and files downloaded:
 
 ![9.2](screenshots/9.2.1.png)
 
@@ -380,6 +460,8 @@ Original was graph.
 <br>
 
 ## 10. Threat Intelligence & Remediation
+
+**All found with quick lookups**
 
 ### 10.1) Understanding MITRE ATT&CK techniques helps map attacker behaviors. Which MITRE ATT&CK technique ID corresponds to abusing OAuth tokens or the device code flow to access applications without needing user credentials?
 
